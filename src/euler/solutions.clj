@@ -69,4 +69,4 @@
 
 (defn solve-euler7
 	[]
-	(first (take-nth 10001 utils/primes)))
+	(nth (utils/primes)  10000))
