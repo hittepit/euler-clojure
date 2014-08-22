@@ -21,3 +21,23 @@
 	(testing "123322 is not a palindrome"
 		(is (false? (utils/palindrome? "123322"))))
 )
+
+(deftest prime-factors-all-test
+	(testing "18 -> 2 3 3"
+		(is (= '(2 3 3) (utils/prime-factors-all 18))))
+	(testing "1 -> no prime factors"
+		(is (= '() (utils/prime-factors-all 1))))
+	(testing "17 -> 17"
+		(is (= '(17) (utils/prime-factors-all 17))))
+)
+
+(deftest gcd-test
+	(testing "gcd of 18 27 = 9"
+		(is (= 9 (utils/gcd 18 27))))
+	(testing "gcd of 17 and 23 is 1"
+		(is (= 1 (utils/gcd 17 23))))
+)
+
+(deftest gcm-test
+	(testing "gcm of 18 27 is 54"
+		(is (= 54 (utils/gcm 18 27)))))

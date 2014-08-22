@@ -51,3 +51,10 @@
 			(range 999 99 -1)
 		))))
 )
+
+(defn solve-euler5
+	[]
+	;Not an elegant solution
+	;(* 2 2 2 2 3 3 5 7 11 13 17 19)
+	(reduce utils/gcm 1 (range 1 21))
+)
