@@ -66,3 +66,7 @@
 			+ 
 			(map #(* % %) (range 101))))
 )
+
+(defn solve-euler7
+	[]
+	(first (take-nth 10001 utils/primes)))
