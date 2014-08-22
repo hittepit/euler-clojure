@@ -54,7 +54,15 @@
 
 (defn solve-euler5
 	[]
-	;Not an elegant solution
-	;(* 2 2 2 2 3 3 5 7 11 13 17 19)
 	(reduce utils/gcm 1 (range 1 21))
+)
+
+(defn solve-euler6
+	[]
+	(-
+		(let [x (reduce + (range 101))]
+			(* x x))
+		(reduce 
+			+ 
+			(map #(* % %) (range 101))))
 )
