@@ -88,3 +88,18 @@
 				(seq digit1000)
 				)))
 		))
+
+(defn solve-euler9
+	[]
+	(first (for [x (range 501)
+			y (range 501)
+			:let [z (- 1000 (+ x y))
+					x2 (* x x)
+					y2 (* y y)
+					z2 (* z z)]
+			:when (and 
+				(< x y)
+				(< y z)
+				(= z2 (+ x2 y2)))]
+			(* x y z)))
+)
