@@ -26,7 +26,7 @@
   ) start)
 )
 
-(defn prime? [x] (or (= x 2) (not (or (= x 1) (some #(= (mod x %) 0) (range 2N (Math/sqrt x)))))))
+(defn prime? [x] (or (= x 2) (not (or (= x 1) (some #(= (mod x %) 0) (range 2N (+ 1 (Math/sqrt x))))))))
 
 (defn primes ([] (filter prime? (iterate inc 1N))) ([start] (filter prime? (iterate inc start))))
 
@@ -37,3 +37,7 @@
     (take-while
       #(<= % x)
       (primes))))
+
+(defn palindrome?
+  [s]
+  (= (seq (str s)) (reverse (str s))))

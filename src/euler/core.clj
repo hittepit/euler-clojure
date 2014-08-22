@@ -6,7 +6,7 @@
 (defn solve
 	[x]
   (def fn-name (str "solve-euler" x))
-  (apply (ns-resolve 'euler.solutions (symbol fn-name)) [])
+  (println (apply (ns-resolve 'euler.solutions (symbol fn-name)) []))
 )
 
 (defn -main

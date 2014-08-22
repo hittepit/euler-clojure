@@ -41,3 +41,13 @@
 		answer
 	)
 )
+
+(defn solve-euler4
+	[]
+	(apply max (filter utils/palindrome? (flatten (
+		map 
+			(fn [x] 
+				(map #(* % x) (range 999 99 -1)))
+			(range 999 99 -1)
+		))))
+)
