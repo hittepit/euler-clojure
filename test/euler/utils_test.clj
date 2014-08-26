@@ -5,12 +5,17 @@
 (deftest prime-test
 	(testing "7 is prime"
 		(is (true? (utils/prime? 7))))
-	(testing "49 is not primer"
+	(testing "49 is not prime"
 		(is (false? (utils/prime? 49))))
 	(testing "1 is not prime"
 		(is (false? (utils/prime? 1))))
-	(testing "2 is primer"
+	(testing "2 is prime"
 		(is (true? (utils/prime? 2))))
+)
+
+(deftest primes-test
+	(testing "10 first primes sequence"
+		(is (= '(2 3 5 7 11 13 17 19 23 29) (take 10 (utils/primes)))))
 )
 
 (deftest palindrome-test
