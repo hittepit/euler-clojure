@@ -1,4 +1,4 @@
-(ns euler.solutions)
+(ns euler.solutions1)
 
 (require '[euler.utils :as utils])
 
@@ -103,7 +103,3 @@
 				(= z2 (+ x2 y2)))]
 			(* x y z)))
 )
-
-(defn solve-euler10
-	[]
-	(reduce + (take-while #(< % 2000000N) (utils/primes))))
