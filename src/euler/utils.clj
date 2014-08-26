@@ -1,5 +1,7 @@
 (ns euler.utils)
 
+(require '[clojure.java.io :as io])
+
 (def fibo-seq 
   (
   	(fn rfib 
@@ -79,3 +81,8 @@
 (defn palindrome?
   [s]
   (= (seq (str s)) (reverse (str s))))
+
+(defn readFile
+  [n]
+  (let [rdr (io/reader (clojure.java.io/resource n))]
+    (line-seq rdr)))
