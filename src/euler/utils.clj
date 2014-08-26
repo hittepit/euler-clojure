@@ -28,7 +28,15 @@
 
 (defn prime? [x] (or (= x 2) (not (or (= x 1) (some #(= (mod x %) 0) (range 2N (+ 1 (Math/sqrt x))))))))
 
-(defn primes ([] (filter prime? (iterate inc' 1))) ([start] (filter prime? (iterate inc' start))))
+;(defn primes ([] (filter prime? (iterate inc' 1))) ([start] (filter prime? (iterate inc' start))))
+
+(defn primes
+  []
+  ((fn
+    [start]
+    (filter
+      prime?
+      (iterate inc' start))) 1))
 
 (defn prime-factors
   [x]
