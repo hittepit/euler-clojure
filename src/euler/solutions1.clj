@@ -1,6 +1,5 @@
-(ns euler.solutions1)
-
-(require '[euler.utils :as utils])
+(ns euler.solutions1
+	(:require [euler.utils :as utils]))
 
 (defn solve-euler1 []
  	(reduce 
