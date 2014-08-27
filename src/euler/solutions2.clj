@@ -67,3 +67,15 @@
 	(utils/find-first 
 			#(> (count (utils/factors %)) 500)
 			utils/triangle-numbers-seq))
+
+(defn solve-euler13
+	[]
+	(.substring 
+		(.toString
+			(reduce
+				+
+				(map
+					(fn [s] (BigInteger. s))
+					(utils/readFile "problem13.txt"))))
+		0
+		10))
