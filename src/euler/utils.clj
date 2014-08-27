@@ -4,20 +4,13 @@
 
 (def fibo-seq 
   (
-  	(fn rfib 
+  	(fn fib 
   		[a b] 
   		(lazy-seq 
   			(cons 
   				a 
-  				(rfib 
-  					b 
-  					(+ a b)
-  				)
-  			)
-  		)
-  	)
-   	0 1
-  )
+  				(fib b (+ a b))))
+  	)	0 1)
 )
 
 (defn int-seq
@@ -28,9 +21,11 @@
   ) start)
 )
 
-(defn prime? [x] (or (= x 2) (not (or (= x 1) (some #(= (mod x %) 0) (range 2N (+ 1 (Math/sqrt x))))))))
-
-;(defn primes ([] (filter prime? (iterate inc' 1))) ([start] (filter prime? (iterate inc' start))))
+(defn 
+  ^{:doc "Returns true is argument is a prime number, false otherwise"}
+  prime? 
+  [x] 
+  (or (= x 2) (not (or (= x 1) (some #(= (mod x %) 0) (range 2 (+ 1 (Math/sqrt x))))))))
 
 (defn primes
   []
@@ -61,6 +56,20 @@
   )
 )
 
+(defn 
+  ^{:doc "Returns all positive integer factors of the argument"}
+  factors
+  [x]
+  (apply sorted-set
+    (reduce
+      (fn [acc i]
+        (if
+          (= (mod x i) 0)
+          (conj (conj acc i) (/ x i))
+          acc))
+      #{}
+      (range 1 (+ 1 (Math/sqrt x))))))
+
 (defn gcd
   [x y]
   (loop
@@ -75,8 +84,6 @@
 (defn gcm
   [x y]
   (/ (*' x y) (gcd x y)))
-
-;(map (fn [x] (count (filter #(= % x) a))) (set a))
 
 (defn palindrome?
   [s]

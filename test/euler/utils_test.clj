@@ -2,6 +2,11 @@
 	(:require [clojure.test :refer :all]
             [euler.utils :as utils :refer :all]))
 
+(deftest fibo-seq-test
+	(testing "First numbers of fibonacci"
+		(is (= '(0 1 1 2 3 5 8 13 21 34 55) (take 11 utils/fibo-seq))))
+)
+
 (deftest prime-test
 	(testing "7 is prime"
 		(is (true? (utils/prime? 7))))
@@ -46,3 +51,12 @@
 (deftest gcm-test
 	(testing "gcm of 18 27 is 54"
 		(is (= 54 (utils/gcm 18 27)))))
+
+(deftest factors-test 
+	(testing "factors of 12"
+		(is (= #{1 2 3 4 6 12} (utils/factors 12))))
+	(testing "factors of 1"
+		(is (= #{1} (utils/factors 1))))
+	(testing "factors of 17"
+		(is (= #{1 17} (utils/factors 17))))
+)
