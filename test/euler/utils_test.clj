@@ -72,3 +72,10 @@
 	(testing "sequence for 1"
 		(is (= '(1) (utils/collatz-seq 1))))
 )
+
+(deftest collatz-count-test
+	(testing "count for 1 is 1"
+		(is (= 1 (collatz-count 1))))
+	(testing "count for 13 is 10"
+		(is (= 10 (collatz-count 13))))
+)

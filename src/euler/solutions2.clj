@@ -79,3 +79,19 @@
 					(utils/readFile "problem13.txt"))))
 		0
 		10))
+
+(defn solve-euler14
+	[]
+	(get
+		(reduce
+			(fn [v el]
+				(let
+					[c (utils/collatz-count el)]
+					(if
+						(> c (get v 0))
+						[c el]
+						v)))
+			[0 0]
+			(range 1 1000000)) 
+		1))
+			

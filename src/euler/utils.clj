@@ -116,6 +116,13 @@
   (let [rdr (io/reader (clojure.java.io/resource n))]
     (line-seq rdr)))
 
+(defn collazt-next
+  [x]
+  (if
+    (even? x)
+    (/ x 2)
+    (+ 1 (* 3 x))))
+
 (defn collatz-seq
   [start]
   (cons 
@@ -123,7 +130,13 @@
     (if
       (= start 1)
       nil
-      (if
-        (even? start)
-        (collatz-seq (/ start 2))
-        (collatz-seq (+ 1 (* 3 start)))))))
+      (collatz-seq (collazt-next start)))))
+
+(defn collatz-count
+  [start]
+  (loop
+    [total 0 el start ]
+    (if
+      (= el 1)
+      (+ total 1)
+      (recur (+ total 1) (collazt-next el)))))
