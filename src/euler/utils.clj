@@ -115,3 +115,15 @@
   [n]
   (let [rdr (io/reader (clojure.java.io/resource n))]
     (line-seq rdr)))
+
+(defn collatz-seq
+  [start]
+  (cons 
+    start
+    (if
+      (= start 1)
+      nil
+      (if
+        (even? start)
+        (collatz-seq (/ start 2))
+        (collatz-seq (+ 1 (* 3 start)))))))

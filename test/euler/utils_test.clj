@@ -65,3 +65,10 @@
 	(testing "factors of 17"
 		(is (= #{1 17} (utils/factors 17))))
 )
+
+(deftest collatz-seq-test
+	(testing "sequence for 13"
+		(is (= '(13 40 20 10 5 16 8 4 2 1) (utils/collatz-seq 13))))
+	(testing "sequence for 1"
+		(is (= '(1) (utils/collatz-seq 1))))
+)
