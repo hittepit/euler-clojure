@@ -7,6 +7,11 @@
 		(is (= '(0 1 1 2 3 5 8 13 21 34 55) (take 11 utils/fibo-seq))))
 )
 
+(deftest triangle-numbers-seq-test
+	(testing "5 first triangle numbers"
+		(is (= '(1 3 6 10 15) (take 5 utils/triangle-numbers-seq))))
+)
+
 (deftest prime-test
 	(testing "7 is prime"
 		(is (true? (utils/prime? 7))))

@@ -61,3 +61,10 @@
 		)
 	)
 )
+
+(defn solve-euler12
+	[]
+	(first 
+		(filter
+			#(> (count (utils/factors %)) 500)
+			utils/triangle-numbers-seq)))

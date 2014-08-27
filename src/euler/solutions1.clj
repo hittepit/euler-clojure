@@ -32,8 +32,13 @@
 	(
 		let [n 600851475143N
 			borne (Math/sqrt n)
-			int-under-borne (take-while #(<= % borne) (utils/int-seq 1))
-			small-n-factors (filter #(= (mod n %) 0) int-under-borne)
+			int-under-borne (take-while #(<= % borne) utils/int-seq)
+			small-n-factors 
+				(filter 
+					#(and 
+						(not (= 0 %))
+						(= (mod n %) 0)) 
+					int-under-borne)
 			big-n-factors (map #(/ n %) small-n-factors)
 			answer (first (filter utils/prime? (concat big-n-factors (reverse small-n-factors))))]
 

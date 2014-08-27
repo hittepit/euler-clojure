@@ -13,12 +13,24 @@
   	)	0 1)
 )
 
-(defn int-seq
-  [start]
+(def triangle-numbers-seq
+  (
+    (fn rtriangle
+      [x]
+      (lazy-seq 
+        (cons 
+          (reduce + (range 1 (+ 1 x)))
+          (rtriangle (inc x))
+        )
+      )
+    ) 1)
+)
+
+(def int-seq
   ((fn sint
     [x]
     (lazy-seq (cons x (sint (inc x))))
-  ) start)
+  ) 0)
 )
 
 (defn 
