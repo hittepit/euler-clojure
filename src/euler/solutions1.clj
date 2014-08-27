@@ -40,7 +40,7 @@
 						(= (mod n %) 0)) 
 					int-under-borne)
 			big-n-factors (map #(/ n %) small-n-factors)
-			answer (first (filter utils/prime? (concat big-n-factors (reverse small-n-factors))))]
+			answer (utils/find-first utils/prime? (concat big-n-factors (reverse small-n-factors)))]
 
 		answer
 	)

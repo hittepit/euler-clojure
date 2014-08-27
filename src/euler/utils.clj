@@ -2,6 +2,16 @@
 
 (require '[clojure.java.io :as io])
 
+(defmacro find-first
+  [condition collection]
+  (list
+    'first
+    (list
+      'filter
+      condition
+      collection
+      )))
+
 (def fibo-seq 
   (
   	(fn fib 
