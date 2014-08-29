@@ -85,3 +85,7 @@
 		(is (= '(1 2 3) (utils/reconstitue '(1 2 3)))))
 	(testing "()"
 		(is (= nil (utils/reconstitue nil)))))
+
+(deftest my-map-test
+	(testing "1 2 3 with *2"
+		(is (= '(2 4 6) (utils/my-map #(* % 2) '(1 2 3))))))

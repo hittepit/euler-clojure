@@ -148,3 +148,15 @@
   (match [coll]
     [([] :seq)] nil
     [([a & r] :seq)] (cons a (reconstitue r))))
+
+(defn my-map
+  [f coll]
+  (loop [cs coll acc nil]
+    (if (= 0 (count cs))
+      (reverse acc)
+      (recur 
+        (rest cs) 
+        (cons 
+          (f 
+            (first cs)) 
+          acc)))))
