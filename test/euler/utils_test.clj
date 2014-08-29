@@ -79,3 +79,9 @@
 	(testing "count for 13 is 10"
 		(is (= 10 (collatz-count 13))))
 )
+
+(deftest reconstitue-test
+	(testing "(1 2 3)"
+		(is (= '(1 2 3) (utils/reconstitue '(1 2 3)))))
+	(testing "()"
+		(is (= nil (utils/reconstitue nil)))))

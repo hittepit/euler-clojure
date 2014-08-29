@@ -2,6 +2,8 @@
 
 (require '[clojure.java.io :as io])
 
+(use '[clojure.core.match :only (match)])
+
 (defmacro find-first
   [condition collection]
   (list
@@ -140,3 +142,9 @@
       (= el 1)
       (+ total 1)
       (recur (+ total 1) (collazt-next el)))))
+
+(defn reconstitue
+  [coll]
+  (match [coll]
+    [([] :seq)] nil
+    [([a & r] :seq)] (cons a (reconstitue r))))
