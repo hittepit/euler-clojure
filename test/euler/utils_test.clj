@@ -21,6 +21,8 @@
 		(is (false? (utils/prime? 1))))
 	(testing "2 is prime"
 		(is (true? (utils/prime? 2))))
+	(testing "0 is not prime"
+		(is (false? (utils/prime? 0))))
 )
 
 (deftest primes-test

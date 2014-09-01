@@ -38,10 +38,10 @@
     ) 1)
 )
 
-(def int-seq
-  ((fn sint
+(def naturals
+  ((fn int-seq
     [x]
-    (lazy-seq (cons x (sint (inc x))))
+    (lazy-seq (cons x (int-seq (inc x))))
   ) 0)
 )
 
@@ -49,15 +49,13 @@
   ^{:doc "Returns true is argument is a prime number, false otherwise"}
   prime? 
   [x] 
-  (or (= x 2) (not (or (= x 1) (some #(= (mod x %) 0) (range 2 (+ 1 (Math/sqrt x))))))))
+  (or (= x 2) (not (or (= x 0) (= x 1) (some #(= (mod x %) 0) (range 2 (+ 1 (Math/sqrt x))))))))
 
 (defn primes
   []
-  ((fn
-    [start]
-    (filter
-      prime?
-      (iterate inc' start))) 1))
+  (filter
+     prime?
+     naturals))
 
 (defn prime-factors
   [x]

@@ -32,7 +32,7 @@
 	(
 		let [n 600851475143N
 			borne (Math/sqrt n)
-			int-under-borne (take-while #(<= % borne) utils/int-seq)
+			int-under-borne (take-while #(<= % borne) utils/naturals)
 			small-n-factors 
 				(filter 
 					#(and 
