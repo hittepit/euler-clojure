@@ -41,7 +41,7 @@
 (def naturals
   ((fn int-seq
     [x]
-    (lazy-seq (cons x (int-seq (inc x))))
+    (lazy-seq (cons x (int-seq (inc' x))))
   ) 0)
 )
 
@@ -51,8 +51,7 @@
   [x] 
   (or (= x 2) (not (or (= x 0) (= x 1) (some #(= (mod x %) 0) (range 2 (+ 1 (Math/sqrt x))))))))
 
-(defn primes
-  []
+(def primes
   (filter
      prime?
      naturals))
@@ -63,7 +62,7 @@
     #(== (mod x %) 0)
     (take-while
       #(<= % x)
-      (primes))))
+      primes)))
 
 (defn prime-factors-all
   [x]

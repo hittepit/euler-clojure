@@ -6,7 +6,7 @@
 
 (defn solve-euler10
 	[]
-	(reduce + (take-while #(< % 2000000N) (utils/primes))))
+	(reduce + (take-while #(< % 2000000N) utils/primes)))
 
 (defn solve-euler11
 	[]
