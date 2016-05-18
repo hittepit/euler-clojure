@@ -94,4 +94,20 @@
 			[0 0]
 			(range 1 1000000)) 
 		1))
-			
+
+(defn solve-euler15
+	[]
+	(let [grid 20
+		  max-iterations (* grid 2)]
+	(defn count-solutions
+		[g
+		 d
+		 it]
+		(if (or (> g grid) (> d grid))
+			0
+			(if (== it max-iterations)
+				(if (== g d) 1 0)
+				(+' 
+					(count-solutions (inc g) d (inc it))
+					(count-solutions g (inc d) (inc it))))))
+	(count-solutions 0 0 0)))
