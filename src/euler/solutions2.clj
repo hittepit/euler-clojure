@@ -106,3 +106,12 @@
 	(let [grid 20
 		  fact-20 (utils/fact 20)]
 		(/ (utils/fact (* grid 2)) (*' fact-20 fact-20))))
+
+(defn solve-euler16
+	[]
+	(let [s (.toString (utils/exp 2 1000))]
+		(reduce 
+			+ 
+			(map 
+				#(Integer/parseInt (str %)) 
+				(seq s)))))
