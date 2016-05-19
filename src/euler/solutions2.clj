@@ -95,19 +95,14 @@
 			(range 1 1000000)) 
 		1))
 
+; A route is composed of right and down moves
+; To be correct, it must have two times the grid dimensions moves
+; it must have the same number of right and down moves.
+; If n x n is the dimensions, it must have 2*n moves with n right moves (and n down moves)
+; So, the result is the number of n-combinations in a set 2n elements (C(2n,n))
+; 2n!/(n! * n!)
 (defn solve-euler15
 	[]
 	(let [grid 20
-		  max-iterations (* grid 2)]
-	(defn count-solutions
-		[g
-		 d
-		 it]
-		(if (or (> g grid) (> d grid))
-			0
-			(if (== it max-iterations)
-				(if (== g d) 1 0)
-				(+' 
-					(count-solutions (inc g) d (inc it))
-					(count-solutions g (inc d) (inc it))))))
-	(count-solutions 0 0 0)))
+		  fact-20 (utils/fact 20)]
+		(/ (utils/fact (* grid 2)) (*' fact-20 fact-20))))

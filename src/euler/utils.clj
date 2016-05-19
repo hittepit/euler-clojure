@@ -157,3 +157,19 @@
           (f 
             (first cs)) 
           acc)))))
+
+(defn exp [x n]
+  (loop [acc 1 n n]
+    (if (zero? n) acc
+        (recur (*' x acc) (dec n)))))
+
+(defn 
+	^{:doc "fact [x] renvoie x! Implémentation tail recursive"
+	  :test #(do
+				 (assert (= 120 (fact 5)))
+				 (assert (= 1 (fact 0))))}
+	fact [x] 
+                (loop [i x acc 1]
+                               (if (= i 0)
+                                               acc
+                                               (recur (dec i) (*' acc i)))))
